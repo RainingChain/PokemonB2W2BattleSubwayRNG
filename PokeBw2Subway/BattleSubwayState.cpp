@@ -44,7 +44,7 @@ std::map<u32, std::string> TrainerDescMap = []()
     {
         u32 id = trainer["id"].get<u32>();
         std::string& Str = map[id];
-        Str += "TrainerId: " + std::to_string(id) + ", Name:" + trainer["name"].get<std::string>() + ", StartMsg:" + trainer["startMsg"].get<std::string>();
+        Str += "TrainerId: " + std::to_string(id) + ", Name:" + trainer["name"].get<std::string>() + ", StartMsg:" + trainer["startMsg"].get<std::string>().substr(0, 20);
     }
     return map;
 }();

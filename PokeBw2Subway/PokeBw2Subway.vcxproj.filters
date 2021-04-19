@@ -130,7 +130,7 @@
     <CopyFileToFolders Include="b2w2_trainers.json">
       <Filter>Resource Files</Filter>
     </CopyFileToFolders>
-    <CopyFileToFolders Include="myProfile.json">
+    <CopyFileToFolders Include="profile.json">
       <Filter>Resource Files</Filter>
     </CopyFileToFolders>
   </ItemGroup>
