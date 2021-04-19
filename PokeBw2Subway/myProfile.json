@@ -1,0 +1,24 @@
+{
+    "dsType": 0,
+    "gxstat": 6,
+    "keypresses": [
+        true,
+        false,
+        false,
+        false
+    ],
+    "language": 0,
+    "mac": "9bf123456",
+    "memoryLink": false,
+    "name": "Black2",
+    "shinyCharm": false,
+    "sid": 0,
+    "skipLR": false,
+    "softReset": false,
+    "tid": 58901,
+    "timer0Max": 3794,
+    "timer0Min": 3794,
+    "vcount": 114,
+    "version": 4096,
+    "vframe": 4
+}
