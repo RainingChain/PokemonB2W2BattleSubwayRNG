@@ -134,9 +134,4 @@
       <Filter>Resource Files</Filter>
     </CopyFileToFolders>
   </ItemGroup>
-  <ItemGroup>
-    <Text Include="LICENSE">
-      <Filter>Source Files</Filter>
-    </Text>
-  </ItemGroup>
 </Project>
