@@ -1,8 +1,16 @@
 Pokemon Black 2/White 2 Battle Subway RNG Tool
-===============
+==============================================
 This tool calculates the trainers and pokemons that you will encounter in the Battle Subway in Pokemon Black 2 or White 2
 based on your profile, the time you boot the DS and the number of current wins.
 The tool uses the average of Timer0Min and Timer0Max to determine the initial seed.
+
+
+Important note
+--------------
+After changing the DS clock, loading the game and changing map will cause daily events to reset
+which will increase the PID RNG frame, causing the pokemons to be different than what the tool says.
+To avoid this issue, change the DS clock, load the game, leave the subway entirely, save, come back inside
+and save again next to the operator.
 
 Basic options:
 --------------

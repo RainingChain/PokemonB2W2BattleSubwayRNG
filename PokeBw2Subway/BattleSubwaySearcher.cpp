@@ -48,10 +48,11 @@ this->forEachSeed(start, start, [&](u64 seed, const DateTime& date)
     u32 frameAdvance = Utilities::initialAdvancesBW2(seed, false);
     BWRNG rng(seed);
     rng.advance(frameAdvance);
+    std::cout << "Date: " << date.toString() << "\n";
+    std::cout << "Seed: 0x" << std::hex << seed << ", InitialAdvances:" << std::dec << frameAdvance << "\n";
     const auto& state = generator.generate(rng.getSeed());
     if (state.has_value())
     {
-        std::cout << date.toString() << ", Seed:0x" << std::hex << seed << ", InitialAdvances:" << std::dec << frameAdvance << "\n";
         state->print(std::cout, nullptr /*playerPokemon*/);
         std::cout << "\n\n" << std::flush;
     }

@@ -48,12 +48,37 @@ namespace ProfileLoader5
                         memoryLink, shinyCharm, dsType, language);
     }
 
-    Profile5 getProfile(const std::string& Path)
+    std::optional<Profile5> getProfile(const std::string& Path)
     {
         std::ifstream read(Path);
         if (!read.is_open())
-            return Profile5();
+            return std::nullopt;
         json j = json::parse(read, nullptr, false);
         return ProfileLoader5::getProfile(j);
+    }
+
+    json getJson(const Profile5& profile)
+    {
+        json j;
+        //j["name"] = profile.getName();
+        j["version"] = profile.getVersion();
+        //j["tid"] = profile.getTID();
+        //j["sid"] = profile.getSID();
+        std::stringstream stream;
+        stream << std::hex << profile.getMac();
+        j["mac"] = stream.str();
+        //j["keypresses"] = profile.getKeypresses();
+        j["vcount"] = profile.getVCount();
+        j["gxstat"] = profile.getGxStat();
+        j["vframe"] = profile.getVFrame();
+        //j["skipLR"] = profile.getSkipLR();
+        j["timer0Min"] = profile.getTimer0Min();
+        j["timer0Max"] = profile.getTimer0Max();
+        j["softReset"] = profile.getSoftReset();
+        j["memoryLink"] = profile.getMemoryLink();
+        //j["shinyCharm"] = profile.getShinyCharm();
+        j["dsType"] = profile.getDSType();
+        j["language"] = profile.getLanguage();
+        return j;
     }
 }

@@ -23,11 +23,13 @@
 #include "Profile5.hpp"
 #include "json.hpp"
 #include <vector>
+#include <optional>
 
 namespace ProfileLoader5
 {
     Profile5 getProfile(const nlohmann::json& json);
-    Profile5 getProfile(const std::string& File);
+    std::optional<Profile5> getProfile(const std::string& File);
+    nlohmann::json getJson(const Profile5& profile);
 }
 
 #endif // PROFILELOADER_HPP

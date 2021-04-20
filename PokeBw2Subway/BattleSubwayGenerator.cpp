@@ -157,9 +157,9 @@ void BattleSubwayGenerator::addPokemonsToTrainer(BWRNG& rng, BattleSubwayTrainer
 std::optional<BattleSubwayState> BattleSubwayGenerator::generate(u64 seed) const
 {
     BWRNG rng(seed);
-    advance(rng, 0, "initial seed");
+    advance(rng, 0, "save loaded");
     BattleSubwayState state(rng.getSeed());
-    advance(rng, 1, "saving");
+    advance(rng, 1, "saving to start subway");
 
     // determine all 7 trainer ids
     std::array<BattleSubwayTrainer, 7> &trainers = state.getTrainers();
@@ -186,7 +186,5 @@ std::optional<BattleSubwayState> BattleSubwayGenerator::generate(u64 seed) const
             return std::nullopt;
         advance(rng, 6, "unknown advances when starting battle");
     }
-    if (this->trace)
-        state.print(std::cout, nullptr);
     return state;
 }

@@ -133,5 +133,8 @@
     <CopyFileToFolders Include="profile.json">
       <Filter>Resource Files</Filter>
     </CopyFileToFolders>
+    <CopyFileToFolders Include="b2w2_displayRngFrames.lua">
+      <Filter>Resource Files</Filter>
+    </CopyFileToFolders>
   </ItemGroup>
 </Project>
