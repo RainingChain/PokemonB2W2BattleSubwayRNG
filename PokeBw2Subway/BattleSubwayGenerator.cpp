@@ -86,32 +86,42 @@ std::vector<u32> createList(u32 start, u32 end)
 
 const std::vector<u32>& getPossibleTrainersByWins(u32 wins)
 {
+    if(wins >= 0 && wins <= 5)
+        {
+        static const auto &list = createList(110, 159);
+        return list;
+        }
+    if(wins >= 6 && wins <= 12)
+        {
+        static const auto &list = createList(140, 179);
+        return list;
+        }
+    if (wins >= 13 && wins <= 19)
+        {
+        static const auto &list = createList(160, 199);
+        return list;
+        }
+    if(wins >= 20 && wins <= 26)
+        {
+        static const auto &list = createList(180, 219);
+        return list;
+        }
+    if (wins == 27)
+        {
+        static const auto& list = createList(200, 239);
+        return list;
+        }
+    if (wins >= 28 && wins <= 47)
+        {
+        static const auto& list = createList(200, 299);
+        return list;
+        }
     if (wins == 48)
         {
         static const auto& list = createList(307, 307);
         return list;
         }
-    if(wins < 7 - 1)
-        {
-        static const auto &list = createList(110, 159);
-        return list;
-        }
-    if(wins < 14 - 1)
-        {
-        static const auto &list = createList(140, 179);
-        return list;
-        }
-    if(wins < 21 - 1)
-        {
-        static const auto &list = createList(160, 199);
-        return list;
-        }
-    if(wins < 28 - 1)
-        {
-        static const auto &list = createList(180, 219);
-        return list;
-        }
-    if (wins >= 28 - 1)
+    if (wins >= 49)
         {
         static const auto& list = createList(200, 299);
         return list;
