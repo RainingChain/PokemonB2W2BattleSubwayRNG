@@ -17,6 +17,8 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
+#include <string>
+
 #ifndef GLOBAL_HPP
 #define GLOBAL_HPP
 
@@ -24,5 +26,7 @@ using u64 = unsigned long long;
 using u32 = unsigned int;
 using u16 = unsigned short;
 using u8 = unsigned char;
+
+static u32 idNULL = 10000;
 
 #endif // GLOBAL_HPP

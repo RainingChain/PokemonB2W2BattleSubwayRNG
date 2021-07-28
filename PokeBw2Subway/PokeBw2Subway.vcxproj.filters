@@ -75,6 +75,15 @@
     <ClInclude Include="ProfileLoader.hpp">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="SubwayType.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BattleSubwayData.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Options.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">

@@ -20,6 +20,7 @@
 #include "ProfileLoader.hpp"
 #include <fstream>
 #include <sstream>
+#include <iostream>
 
 using json = nlohmann::json;
 

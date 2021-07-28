@@ -21,7 +21,7 @@
 #define KEYPRESSES_HPP
 
 #include "Buttons.hpp"
-#include "Global.hpp""
+#include "Global.hpp"
 #include <vector>
 
 namespace Keypresses

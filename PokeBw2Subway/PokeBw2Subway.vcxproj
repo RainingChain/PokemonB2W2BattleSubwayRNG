@@ -108,6 +108,7 @@
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <LanguageStandard>stdcpplatest</LanguageStandard>
+      <EnableModules>true</EnableModules>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -145,6 +146,7 @@
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <LanguageStandard>stdcpplatest</LanguageStandard>
+      <EnableModules>true</EnableModules>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -154,6 +156,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="BattleSubwayData.hpp" />
     <ClInclude Include="BattleSubwayFilter.hpp" />
     <ClInclude Include="BattleSubwayGenerator.hpp" />
     <ClInclude Include="BattleSubwaySearcher.hpp" />
@@ -168,11 +171,13 @@
     <ClInclude Include="Language.hpp" />
     <ClInclude Include="LCRNG64.hpp" />
     <ClInclude Include="Nazos.hpp" />
+    <ClInclude Include="Options.hpp" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Profile.hpp" />
     <ClInclude Include="Profile5.hpp" />
     <ClInclude Include="ProfileLoader.hpp" />
     <ClInclude Include="SHA1.hpp" />
+    <ClInclude Include="SubwayType.hpp" />
     <ClInclude Include="Utilities.hpp" />
   </ItemGroup>
   <ItemGroup>

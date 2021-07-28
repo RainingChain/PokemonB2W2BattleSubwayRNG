@@ -143,6 +143,19 @@ int Time::secondsTo(const Time &other) const
     return md - other.md;
 }
 
+std::string Time::toInputString() const
+{
+    std::string h = std::to_string(hour());
+    h.insert(h.begin(), 2 - h.size(), '0');
+
+    std::string m = std::to_string(minute());
+    m.insert(m.begin(), 2 - m.size(), '0');
+
+    std::string s = std::to_string(second());
+    s.insert(s.begin(), 2 - s.size(), '0');
+
+    return h + "-" + m + "-" + s;
+}
 std::string Time::toString() const
 {
     std::string h = std::to_string(hour());
@@ -195,4 +208,9 @@ const Time &DateTime::getTime() const
 std::string DateTime::toString() const
 {
     return date.toString() + " " + time.toString();
+}
+
+std::string DateTime::toInputString() const
+{
+    return date.toString() + "-" + time.toInputString();
 }

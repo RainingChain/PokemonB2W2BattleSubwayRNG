@@ -84,6 +84,7 @@ public:
     int minute() const;
     int second() const;
     std::string toString() const;
+    std::string toInputString() const;
     int secondsTo(const Time &other) const;
 
     constexpr bool operator==(const Time &other) const
@@ -130,6 +131,8 @@ public:
     const Date &getDate() const;
     const Time &getTime() const;
     std::string toString() const;
+    std::string toInputString() const;
+    
     long long secondsTo(const DateTime &other) const;
 
     constexpr bool operator==(const DateTime &other) const

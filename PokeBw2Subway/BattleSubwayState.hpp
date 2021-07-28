@@ -12,7 +12,7 @@ class BattleSubwayPokemon
 public:
     BattleSubwayPokemon() = default;
     
-    BattleSubwayPokemon(u16 id, u8 ability) : id(id), ability(ability)
+    BattleSubwayPokemon(u16 id, u8 ability, u16 speed) : id(id), ability(ability)
     {
     }
 
@@ -32,15 +32,20 @@ public:
     {
         this->ability = ability;
     }
+    u16 getSpeed() const
+    {
+
+        return id;
+    }
 private:
-    u16 id;
-    u8 ability;
+    u16 id = idNULL;
+    u8 ability = 0;
 };
 
 class BattleSubwayTrainer
 {
 public:
-    BattleSubwayTrainer() = default;
+	BattleSubwayTrainer() = default;
     
     u32 getTrainerId() const
     {
@@ -50,24 +55,31 @@ public:
     {
         this->trainerId = trainerId;
     }
-    std::array<BattleSubwayPokemon, 3> &getPokemons()
+    std::array<BattleSubwayPokemon, 4> &getPokemonsForInitialization()
     {
         return pokemons;
     }
-    const std::array<BattleSubwayPokemon, 3> &getPokemons() const
+    template<typename T>
+    void forEachPokemon(const T& Func) const
     {
-        return pokemons;
+        for (size_t i = 0; i < pokemons.size(); i++)
+        {
+            const auto& pokemon = pokemons[i];
+            if (pokemon.getId() == idNULL)
+                break;
+            Func(pokemon, i);
+        }
     }
 private:
-    std::array<BattleSubwayPokemon, 3> pokemons;
-    u32 trainerId;
+    std::array<BattleSubwayPokemon, 4> pokemons;
+    u32 trainerId = idNULL;
 };
 
 
 class BattleSubwayState
 {
 public:
-    BattleSubwayState() = default;
+	BattleSubwayState() = default;
 
     BattleSubwayState(u64 seed) : seed(seed)
     {
@@ -77,19 +89,45 @@ public:
     {
         return seed;
     }
-    std::array<BattleSubwayTrainer, 7> &getTrainers()
+    std::array<BattleSubwayTrainer, 14> &getTrainersForInitialization()
     {
         return trainers;
     }
-    const std::array<BattleSubwayTrainer, 7> &getTrainers() const
+    template<typename T>
+    void forEachTrainer(const T& Func) const
     {
-        return trainers;
+        for (const auto& trainer : this->trainers)
+        {
+            if (trainer.getTrainerId() == idNULL)
+                break;
+            Func(trainer);
+        }
     }
+	template<typename T>
+	void forEachTrainerPair(const T& Func) const
+	{
+		for (size_t i = 0; i < this->trainers.size(); i += 2)
+		{
+			if (this->trainers[i].getTrainerId() == idNULL || 
+				this->trainers[i + 1].getTrainerId() == idNULL)
+				break;
+			Func(this->trainers[i], this->trainers[i + 1]);
+		}
+	}
     void print(std::ostream& os, const BattleSubwayPlayerPokemon* selfPokemon) const;
 
+	const BattleSubwayTrainer& getMultiTeammate() const
+	{
+		return multiTeammate;
+	}
+	BattleSubwayTrainer& getMultiTeammate()
+	{
+		return multiTeammate;
+	}
 private:
-    std::array<BattleSubwayTrainer, 7> trainers;
-    u64 seed;
+    std::array<BattleSubwayTrainer, 14> trainers;
+    u64 seed = 0;
+	BattleSubwayTrainer multiTeammate;
 };
 
 #endif // BATTLESUBWAYSTATE_HPP
