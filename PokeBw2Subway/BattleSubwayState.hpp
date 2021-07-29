@@ -1,6 +1,4 @@
-#ifndef BATTLESUBWAYSTATE_HPP
-#define BATTLESUBWAYSTATE_HPP
-
+#pragma once 
 #include <array>
 #include <iostream>
 
@@ -86,5 +84,3 @@ class BattleSubwayState {
   u64 seed = 0;
   BattleSubwayTrainer multiTeammate;
 };
-
-#endif  // BATTLESUBWAYSTATE_HPP

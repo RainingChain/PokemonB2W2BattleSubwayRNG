@@ -1,5 +1,4 @@
-#ifndef BATTLESUBWAYFILTER_HPP
-#define BATTLESUBWAYFILTER_HPP
+#pragma once
 
 #include <vector>
 
@@ -36,5 +35,3 @@ class BattleSubwayFilter {
   bool active = true;
   std::vector<BattleSubwayPlayerPokemon> playerPokemons;
 };
-
-#endif  // BATTLESUBWAYFILTER_HPP

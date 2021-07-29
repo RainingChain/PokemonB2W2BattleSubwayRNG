@@ -1,5 +1,4 @@
-#ifndef BATTLESUBWAYDATA_HPP
-#define BATTLESUBWAYDATA_HPP
+#pragma once
 
 #include <fstream>
 #include <map>
@@ -131,5 +130,3 @@ class BattleSubwayData {
     return allTrainersPokemons;
   }
 };
-
-#endif  // BATTLESUBWAYDATA_HPP

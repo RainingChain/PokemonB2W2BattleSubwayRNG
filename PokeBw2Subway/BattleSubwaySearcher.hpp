@@ -1,6 +1,4 @@
-#ifndef BattleSubwaySearcher_HPP
-#define BattleSubwaySearcher_HPP
-
+#pragma once
 #include <atomic>
 #include <mutex>
 
@@ -39,5 +37,3 @@ class BattleSubwaySearcher {
               const DateTime &end);
   const BattleSubwayPlayerPokemon *firstPlayerPokemon() const;
 };
-
-#endif  // BattleSubwaySearcher_HPP

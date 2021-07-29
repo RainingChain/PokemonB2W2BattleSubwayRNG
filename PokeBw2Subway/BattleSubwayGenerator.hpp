@@ -1,7 +1,5 @@
-#ifndef BATTLESUBWAYGENERATOR_HPP
-#define BATTLESUBWAYGENERATOR_HPP
-
-#include <atomic>
+#pragma once 
+#include < atomic>
 #include <optional>
 #include <vector>
 
@@ -35,5 +33,3 @@ class BattleSubwayGenerator {
   }
   bool isTraceActive() const { return this->opts.printRngFramesInfo; }
 };
-
-#endif  // BATTLESUBWAYGENERATOR_HPP
