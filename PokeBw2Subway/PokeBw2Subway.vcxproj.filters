@@ -84,6 +84,9 @@
     <ClInclude Include="Options.hpp">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="BattleSubwayPlayerPokemon.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">

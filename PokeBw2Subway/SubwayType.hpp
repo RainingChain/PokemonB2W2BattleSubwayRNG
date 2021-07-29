@@ -49,24 +49,27 @@ public:
 	{
 		if (Str == "superSingle")
 			this->type = SubwayType::superSingle;
-		if (Str == "normalSingle")
+		else if (Str == "normalSingle")
 			this->type = SubwayType::normalSingle;
-		if (Str == "normalDouble")
+		else if (Str == "normalDouble")
 			this->type = SubwayType::normalDouble;
-		if (Str == "superDouble")
+		else if (Str == "superDouble")
 			this->type = SubwayType::superDouble;
-		if (Str == "normalMulti")
+		else if (Str == "normalMulti")
 			this->type = SubwayType::normalMulti;
-		if (Str == "superMulti")
+		else if (Str == "superMulti")
 			this->type = SubwayType::superMulti;
-		if (Str == "wifi")
+		else if (Str == "wifi")
 			this->type = SubwayType::wifi;
-		if (Str == "battleInstituteDouble")
+		else if (Str == "battleInstituteDouble")
 			this->type = SubwayType::battleInstituteDouble;
-		if (Str == "battleInstituteSingle")
+		else if (Str == "battleInstituteSingle")
 			this->type = SubwayType::battleInstituteSingle;
-		std::cout << "Invalid --subwayType\n";
-		this->type = SubwayType::superSingle;
+		else
+			{
+			std::cout << "Invalid --subwayType\n";
+			this->type = SubwayType::superSingle;
+			}
 	};
 	const char* toStr()
 	{

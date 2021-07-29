@@ -159,6 +159,7 @@
     <ClInclude Include="BattleSubwayData.hpp" />
     <ClInclude Include="BattleSubwayFilter.hpp" />
     <ClInclude Include="BattleSubwayGenerator.hpp" />
+    <ClInclude Include="BattleSubwayPlayerPokemon.hpp" />
     <ClInclude Include="BattleSubwaySearcher.hpp" />
     <ClInclude Include="BattleSubwayState.hpp" />
     <ClInclude Include="Buttons.hpp" />
