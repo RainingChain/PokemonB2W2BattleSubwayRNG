@@ -60,9 +60,13 @@ void BattleSubwaySearcher::searchByPidRng(
        i <= this->opts.multiTeammateUnknownFrameAdvance; i++) {
     std::cout << "multiTeammateUnknownFrameAdvance: " << i << "\n\n"
               << std::flush;
+    BattleSubwayFilter filter(this->opts, true);
     const auto &state = generator.generate(pidRng, i);
     if (state.has_value()) {
-      state->print(std::cout, nullptr /*playerPokemon*/);
+      const auto* PlayerPoke = this->opts.getFirstPlayerPokemon();
+      if (PlayerPoke != nullptr)
+        std::cout << "Rating with " << PlayerPoke->description << ": " << filter.getStateRating(*state, *PlayerPoke) << "\n";
+      state->print(std::cout, PlayerPoke);
       std::cout << "\n\n" << std::flush;
     }
   }
@@ -94,7 +98,7 @@ void BattleSubwaySearcher::searchCustom(
                 << std::dec << frameAdvance << "\n";
       std::cout << "Before saving seed: 0x" << std::hex << rng.getSeed() << "|"
                 << std::dec << "\n";
-      state->print(std::cout, nullptr);
+      state->print(std::cout, this->opts.getFirstPlayerPokemon());
       std::cout
           << "\n\n########################################################\n"
           << std::flush;
@@ -121,29 +125,22 @@ void BattleSubwaySearcher::search(const BattleSubwayGenerator &generator,
     }
 
     const auto &state = generator.generate(rng.getSeed());
-    if (!state.has_value()) return true;
+    if (!state.has_value()) 
+      return true;
 
-    std::pair<const BattleSubwayPlayerPokemon *, float> rating =
+    std::pair<const BattleSubwayPlayerPokemon *, float> rating = 
         generator.filter->getStateRating(*state);
+
     if (rating.second >= this->minimumRatingForPrint) {
-      this->minimumRatingForPrint = rating.second + 0.01;  // NO_PROD
+      //this->minimumRatingForPrint = rating.second + 0.01;
       std::vector<BattleSubwayState> states;
       states.push_back(*state);
-      // NO_PROD
-      /*for (u32 i = this->opts.multiTeammateUnknownFrameAdvance + 1; i <=
-      this->opts.multiTeammateUnknownFrameAdvance + 2; i++)
-      {
-              const auto& state2 = generator.generate(rng.getSeed(), i);
-              if (!state2.has_value())
-                      return true;
-              states.push_back(*state2);
-      }*/
 
       for (size_t i = 0; i < states.size(); i++) {
         const auto &state = states[i];
         std::lock_guard<std::mutex> guard(mutex);
         std::cout << "Rating:" << rating.second
-                  << ". PlayerPokemon:" << rating.first->name << "\n";
+                  << ". PlayerPokemon:" << rating.first->description << "\n";
         std::cout << date.toInputString() << "|Seed: 0x" << std::hex << seed
                   << "|InitialAdv: " << std::dec << frameAdvance
                   << "|PIDNRG: 0x" << std::hex << seedAfterInitAdvance

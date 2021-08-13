@@ -100,7 +100,8 @@ std::vector<u32> createList(u32 start, u32 end) {
 
 const std::vector<u32>& getPossibleTrainersByWins(u32 wins, Subway type,
                                                   u32 trainerIdxInBattle) {
-  // TODO: not correct list for superMulti, wifi, normalMulti
+  // TODO_FUTUR: not correct list for wifi
+  // TODO_FUTUR: not 100% correct for normalMulti, superMulti 
 
   if (type == SubwayType::normalSingle || type == SubwayType::normalDouble ||
       type == SubwayType::normalMulti || type == SubwayType::wifi) {
@@ -193,9 +194,10 @@ const std::vector<u32>& getPossibleTrainersByWins(u32 wins, Subway type,
 }
 
 /*
-f0 = function(seed){ seed = BigInt(seed); return ((((seed >> 32n) >> 16n) +
-(seed >> 32n)) >> 16n);}; f1 = function(seed, nb){ f0(seed) % BigInt(nb);}; f2 =
-function(seed){ return arr[f1(seed, BigInt(arr.length))];}; arr =
+f0 = function(seed){ seed = BigInt(seed); return ((((seed >> 32n) >> 16n) + (seed >> 32n)) >> 16n);};
+f1 = function(seed, nb){ f0(seed) % BigInt(nb);};
+f2 = function(seed){ return arr[f1(seed, BigInt(arr.length))];};
+arr =
 */
 
 //\w+  f(0x$0n, 50n),
@@ -248,10 +250,10 @@ void BattleSubwayGenerator::addPokemonsToTrainer(
         const auto& poke =
             BattleSubwayData::getAllTrainersPokemons()[pokeIdToAdd];
         const bool isIncompatibleWithPlayerPoke =
-            poke.item == this->opts.playerTeam.item1 ||
-            poke.item == this->opts.playerTeam.item2 ||
-            poke.name == this->opts.playerTeam.pokemon1 ||
-            poke.name == this->opts.playerTeam.pokemon2;
+            poke.item == this->opts.playerTeamForMulti.item1 ||
+            poke.item == this->opts.playerTeamForMulti.item2 ||
+            poke.name == this->opts.playerTeamForMulti.pokemon1 ||
+            poke.name == this->opts.playerTeamForMulti.pokemon2;
         if (isIncompatibleWithPlayerPoke) {
           this->log(" isIncompatibleWithPlayerPoke");
           return true;

@@ -29,7 +29,7 @@ class BattleSubwayGenerator {
       const BattleSubwayTrainer* prevTrainerForMulti = nullptr) const;
 
   const BattleSubwayPlayerTeam& getPlayerTeam() const {
-    return this->opts.playerTeam;
+    return this->opts.playerTeamForMulti;
   }
   bool isTraceActive() const { return this->opts.printRngFramesInfo; }
 };
