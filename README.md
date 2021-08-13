@@ -95,10 +95,10 @@ Options for normalMulti and superMulti:
 ---------------
 In normalMulti and superMulti, your own pokemon influences your teammate and thus, the trainers you will face.
 This means you must provide information about your own pokemons.
-*`--multiTrainer`: The battle orientation of your teammate. Either attack, defense or balanced. Default: attack.
-*`--playerPokemonsFile`: See above. This option is considered even in \"generate\" mode.
-*`--playerPokemonsIdxFilter`: See above. --playerPokemonsIdxFilter must contain 2 elements that represent your 2 pokemons.
-*`--multiTeammateUnknownFrameAdvance`: Number of frame advances after selecting your teammate in multi battle.
+* `--multiTrainer`: The battle orientation of your teammate. Either attack, defense or balanced. Default: attack.
+* `--playerPokemonsFile`: See above. This option is considered even in \"generate\" mode.
+* `--playerPokemonsIdxFilter`: See above. --playerPokemonsIdxFilter must contain 2 elements that represent your 2 pokemons.
+* `--multiTeammateUnknownFrameAdvance`: Number of frame advances after selecting your teammate in multi battle.
 The logic that determines the number of advance is unknown. There is about 25% chance to be 12 advances.
 Thus, the tool calculates the correct list of trainers only 25% of the time.
 Further reearch is needed to automatically determine that value. Default: 12 
