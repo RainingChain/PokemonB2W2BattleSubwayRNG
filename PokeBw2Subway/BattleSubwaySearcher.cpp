@@ -58,8 +58,10 @@ void BattleSubwaySearcher::searchByPidRng(
     const BattleSubwayGenerator &generator, u64 pidRng) {
   for (u32 i = this->opts.multiTeammateUnknownFrameAdvance;
        i <= this->opts.multiTeammateUnknownFrameAdvance; i++) {
-    std::cout << "multiTeammateUnknownFrameAdvance: " << i << "\n\n"
-              << std::flush;
+    if (this->opts.subway.isMulti())
+      std::cout << "multiTeammateUnknownFrameAdvance: " << i << "\n"
+                << std::flush;
+    std::cout << "\n";
     BattleSubwayFilter filter(this->opts, true);
     const auto &state = generator.generate(pidRng, i);
     if (state.has_value()) {
